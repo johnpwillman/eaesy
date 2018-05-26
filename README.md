@@ -1,6 +1,6 @@
 # Eaesy
 
-Eaesy is a gem for quickly encrypting and decrypting a string value using the AES 256 CBC algorithm.
+Eaesy is a gem for quickly encrypting and decrypting a string value using the AES 256 CBC algorithm. All encrypted values and initialization vectors are string-representations of binary values for ease of use.
 
 ## Installation
 
@@ -20,17 +20,38 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Encrypt a string
 
-## Development
+Without existing Initialization Vector
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```ruby
+eaesy = Eaesy::Cipher.new('YOUR_ENCRYPTION_KEY')
+enc_hash = eaesy.encrypt('SOME_STRING')
+encrypted_text = enc_hash[:encrypted_secret]
+initialization_vector = enc_hash[:iv]
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+With existing Initialization Vector
+
+```ruby
+eaesy = Eaesy::Cipher.new('YOUR_ENCRYPTION_KEY')
+enc_hash = eaesy.encrypt('SOME_STRING', initialization_vector)
+encrypted_text = enc_hash[:encrypted_secret]
+```
+
+>warn
+>Don't forget to store the initialization vector for later decrypting!
+
+### Decrypt a previously encrypted value
+
+```ruby
+eaesy = Eaesy::Cipher.new('YOUR_ENCRYPTION_KEY')
+decrypted_text = eaesy.decrypt(encrypted_text, initialization_vector)
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/eaesy.
+Bug reports and pull requests are welcome on GitHub at https://github.com/johnpwillman/eaesy.
 
 ## License
 
