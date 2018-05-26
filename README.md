@@ -39,7 +39,6 @@ enc_hash = eaesy.encrypt('SOME_STRING', initialization_vector)
 encrypted_text = enc_hash[:encrypted_secret]
 ```
 
->warn
 >Don't forget to store the initialization vector for later decrypting!
 
 ### Decrypt a previously encrypted value
