@@ -5,7 +5,7 @@ require 'digest/sha2'
 require 'base64'
 
 module Eaesy
-  class eaesy
+  class Cipher
     def initialize(key_plain)
       @cipherAlg = "aes-256-cbc"
       @key = sha256(key_plain)
