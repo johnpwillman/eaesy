@@ -36,7 +36,7 @@ module Eaesy
 
     def decrypt(encrypted_secret, iv)
       # now we create a cipher for decrypting
-      cipher = OpenSSL::Cipher::Cipher.new(@cipherAlg)
+      cipher = OpenSSL::Cipher.new(@cipherAlg)
       cipher.decrypt
       cipher.key = @key
       cipher.iv = iv.unpack('m')[0]
