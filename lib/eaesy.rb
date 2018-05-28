@@ -23,6 +23,7 @@ module Eaesy
       cipher.key = @key
       cipher.iv = iv
 
+      secret = ' ' if (secret || '').length == 0
       # encrypt the message
       encrypted = cipher.update(secret)
       encrypted << cipher.final

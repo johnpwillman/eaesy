@@ -6,7 +6,7 @@ require "eaesy/version"
 Gem::Specification.new do |spec|
   spec.name          = "eaesy"
   spec.version       = Eaesy::VERSION
-  spec.authors       = ["johnatjawsdb"]
+  spec.authors       = ["John Willman"]
   spec.email         = ["john@jawsdb.com"]
 
   spec.summary       = %q{Simple string encryption/decryption using AES 256 CBC}
